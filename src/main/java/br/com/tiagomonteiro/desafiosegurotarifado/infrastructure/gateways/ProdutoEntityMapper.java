@@ -6,21 +6,21 @@ import br.com.tiagomonteiro.desafiosegurotarifado.infrastructure.persistence.Pro
 public class ProdutoEntityMapper {
     ProdutoEntity toEntity(Produto produtoDomainObj){
         return new ProdutoEntity(
-                produtoDomainObj.id(),
+                null,
                 produtoDomainObj.nome(),
                 produtoDomainObj.categoria(),
-                produtoDomainObj.preco_base(),
-                produtoDomainObj.preco_tarifado()
+                produtoDomainObj.precoBase(),
+                produtoDomainObj.precoTarifado()
         );
     }
     
     Produto toDomainObj(ProdutoEntity produtoEntity){
         return new Produto(
-                produtoEntity.id(),
-                produtoEntity.nome(),
-                produtoEntity.categoria(),
-                produtoEntity.preco_base(),
-                produtoEntity.preco_tarifado()
+                produtoEntity.getId().toString(),
+                produtoEntity.getNome(),
+                produtoEntity.getCategoria(),
+                produtoEntity.getPreco_base(),
+                produtoEntity.getPreco_tarifado()
         );
     }
 }

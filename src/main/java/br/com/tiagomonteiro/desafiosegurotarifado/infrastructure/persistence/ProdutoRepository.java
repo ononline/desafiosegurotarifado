@@ -1,6 +1,6 @@
 package br.com.tiagomonteiro.desafiosegurotarifado.infrastructure.persistence;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProdutoRepository extends CrudRepository<ProdutoEntity, String> {
+public interface ProdutoRepository extends JpaRepository<ProdutoEntity, String> {
 }

@@ -6,6 +6,7 @@ import br.com.tiagomonteiro.desafiosegurotarifado.infrastructure.persistence.Pro
 import br.com.tiagomonteiro.desafiosegurotarifado.infrastructure.persistence.ProdutoRepository;
 
 public class ProdutoRepositoryGateway implements ProdutoGateway {
+    
     private final ProdutoRepository produtoRepository;
     private final ProdutoEntityMapper produtoEntityMapper;
     

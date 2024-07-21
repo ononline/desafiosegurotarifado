@@ -1,6 +1,8 @@
 package br.com.tiagomonteiro.desafiosegurotarifado.main;
 
+import br.com.tiagomonteiro.desafiosegurotarifado.application.factories.CategoriaStrategyFactory;
 import br.com.tiagomonteiro.desafiosegurotarifado.application.gateways.ProdutoGateway;
+import br.com.tiagomonteiro.desafiosegurotarifado.application.usecases.CalculateTarifaInteractor;
 import br.com.tiagomonteiro.desafiosegurotarifado.application.usecases.CreateProdutoInteractor;
 import br.com.tiagomonteiro.desafiosegurotarifado.infrastructure.controllers.ProdutoDTOMapper;
 import br.com.tiagomonteiro.desafiosegurotarifado.infrastructure.gateways.ProdutoEntityMapper;
@@ -15,6 +17,11 @@ public class ProdutoConfig {
     @Bean
     CreateProdutoInteractor createProdutoInteractor(ProdutoGateway produtoGateway){
         return new CreateProdutoInteractor(produtoGateway);
+    }
+    
+    @Bean
+    CalculateTarifaInteractor calculateTarifaInteractor(){
+        return new CalculateTarifaInteractor(new CategoriaStrategyFactory());
     }
     
     @Bean

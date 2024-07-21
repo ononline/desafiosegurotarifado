@@ -4,6 +4,6 @@ public record Produto(
         String id,
         String nome,
         String categoria,
-        Double preco_base,
-        Double preco_tarifado) {
+        Double precoBase,
+        Double precoTarifado) {
 }

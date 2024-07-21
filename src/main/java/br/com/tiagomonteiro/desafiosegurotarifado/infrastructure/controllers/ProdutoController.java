@@ -1,27 +1,30 @@
 package br.com.tiagomonteiro.desafiosegurotarifado.infrastructure.controllers;
 
+import br.com.tiagomonteiro.desafiosegurotarifado.application.usecases.CalculateTarifaInteractor;
 import br.com.tiagomonteiro.desafiosegurotarifado.application.usecases.CreateProdutoInteractor;
 import br.com.tiagomonteiro.desafiosegurotarifado.domain.entity.Produto;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("produtos")
 public class ProdutoController {
 
     private final CreateProdutoInteractor createProdutoInteractor;
     private final ProdutoDTOMapper produtoDTOMapper;
+    private final CalculateTarifaInteractor calculateTarifaInteractor;
     
-    public ProdutoController(CreateProdutoInteractor createProdutoInteractor, ProdutoDTOMapper produtoDTOMapper) {
+    public ProdutoController(CreateProdutoInteractor createProdutoInteractor, ProdutoDTOMapper produtoDTOMapper, CalculateTarifaInteractor calculateTarifaInteractor) {
         this.createProdutoInteractor = createProdutoInteractor;
         this.produtoDTOMapper = produtoDTOMapper;
+        this.calculateTarifaInteractor = calculateTarifaInteractor;
     }
     
-    @PostMapping
-    CreateProdutoResponse create(@RequestBody CreateProdutoRequest request){
-        Produto produtoBusinessOBj = produtoDTOMapper.toProduto(request);
+    @PostMapping("/produtos")
+    CreateProdutoResponse create(@RequestBody CreateProdutoRequest request) throws IllegalAccessException {
+        calculateTarifaInteractor.setStrategy(request.categoria());
+        double precoTarifado = calculateTarifaInteractor.calcularTarifas(request.preco_base());
+        Produto produtoBusinessOBj = produtoDTOMapper.toProduto(request, precoTarifado);
         Produto produto = createProdutoInteractor.createProduto(produtoBusinessOBj);
         return produtoDTOMapper.toResponse(produto);
     }

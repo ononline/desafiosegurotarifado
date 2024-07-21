@@ -8,18 +8,18 @@ public class ProdutoDTOMapper {
                 produto.id(),
                 produto.nome(),
                 produto.categoria(),
-                produto.preco_base(),
-                produto.preco_tarifado()
+                produto.precoBase(),
+                produto.precoTarifado()
         );
     }
     
-    Produto toProduto(CreateProdutoRequest request){
+    Produto toProduto(CreateProdutoRequest request, double precoTarifado){
         return new Produto(
                 null,
                 request.nome(),
                 request.categoria(),
                 request.preco_base(),
-                null
+                precoTarifado
         );
     }
 }
