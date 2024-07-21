@@ -1,4 +1,4 @@
-package br.com.tiagomonteiro.desafiosegurotarifado;
+package br.com.tiagomonteiro.desafiosegurotarifado.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
