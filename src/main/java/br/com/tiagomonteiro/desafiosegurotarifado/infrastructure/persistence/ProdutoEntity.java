@@ -17,6 +17,9 @@ public class ProdutoEntity{
         private Double preco_base;
         private Double preco_tarifado;
         
+        public ProdutoEntity() {
+        }
+        
         public UUID getId() {
                 return id;
         }

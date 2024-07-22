@@ -15,10 +15,10 @@ public class ProdutoRepositoryGateway implements ProdutoGateway {
         this.produtoEntityMapper = produtoEntityMapper;
     }
     
-    
     @Override
     public Produto createProduto(Produto produtoDomainObj) {
         ProdutoEntity produtoEntity = produtoEntityMapper.toEntity(produtoDomainObj);
+        produtoRepository.findByNome(produtoEntity.getNome()).ifPresent(produtoEntity1 -> produtoEntity.setId(produtoEntity1.getId()));
         ProdutoEntity savedObj = produtoRepository.save(produtoEntity);
         return produtoEntityMapper.toDomainObj(savedObj);
     }
