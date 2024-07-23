@@ -11,6 +11,9 @@ import br.com.tiagomonteiro.desafiosegurotarifado.infrastructure.persistence.Pro
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Classe de configuração do Spring, para definição de Beans
+ */
 @Configuration
 public class ProdutoConfig {
     

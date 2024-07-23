@@ -1,5 +1,8 @@
 package br.com.tiagomonteiro.desafiosegurotarifado.domain.categoria;
 
+/**
+ * Implementação da estratégia de cálculo de tarifas para categoria "PATRIMONIAL"
+ */
 public class PatrimonialCategoriaStrategy implements CategoriaStrategy{
     @Override
     public double calcularTarifas(double precoBase) {

@@ -5,6 +5,9 @@ import br.com.tiagomonteiro.desafiosegurotarifado.domain.entity.Produto;
 import br.com.tiagomonteiro.desafiosegurotarifado.infrastructure.persistence.ProdutoEntity;
 import br.com.tiagomonteiro.desafiosegurotarifado.infrastructure.persistence.ProdutoRepository;
 
+/**
+ * Implementação de serviço responsável por coordenar as transformações e persistência do produto
+ */
 public class ProdutoRepositoryGateway implements ProdutoGateway {
     
     private final ProdutoRepository produtoRepository;

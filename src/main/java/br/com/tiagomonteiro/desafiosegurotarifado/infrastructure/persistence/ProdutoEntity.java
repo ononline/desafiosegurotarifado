@@ -7,6 +7,9 @@ import jakarta.persistence.Id;
 
 import java.util.UUID;
 
+/**
+ * Entidade de persistência do Produto
+ */
 @Entity(name = "PRODUTO")
 public class ProdutoEntity{
         @Id

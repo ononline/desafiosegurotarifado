@@ -2,6 +2,9 @@ package br.com.tiagomonteiro.desafiosegurotarifado.application.factories;
 
 import br.com.tiagomonteiro.desafiosegurotarifado.domain.categoria.*;
 
+/**
+ * Responsável por instanciar e gerir as instâncias das Strategies de cálculo de tarifas
+ */
 public class CategoriaStrategyFactory {
     
     private final VidaCategoriaStrategy vidaCategoriaStrategy;

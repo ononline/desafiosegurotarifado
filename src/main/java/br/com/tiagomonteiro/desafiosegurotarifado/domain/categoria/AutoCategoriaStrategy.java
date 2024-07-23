@@ -1,5 +1,8 @@
 package br.com.tiagomonteiro.desafiosegurotarifado.domain.categoria;
 
+/**
+ * Implementação da estratégia de cálculo de tarifas para categoria "AUTO"
+ */
 public class AutoCategoriaStrategy implements CategoriaStrategy{
     
     @Override
