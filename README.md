@@ -106,8 +106,6 @@ integrada cobrindo o restante do serviço, totalizando:
 - 87% dos métodos (36/41, faltam alguns getters e setters que não são utilizados no código)
 - 95% das linhas (100/105, mesmo que acima)
 
-O relatório de cobertura de testes pode ser encontrado [aqui](htmlReport/index.html)
-
 ## Observabilidade
 
 Para acompanhamento da saúde do serviço, foi incluído o Micrometer, parte do Spring Actuator, que colhe todos os dados necessários
