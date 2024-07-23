@@ -17,11 +17,19 @@ O projeto foi iniciado em 20/07/2024, para entrega no dia 23/07/2024
 - H2
 - JUnit
 - Mockito
+- Micrometer
+- Prometheus
+- Grafana
 
 ## Como executar o projeto
 
-No estado atual do projeto, ainda não foi implementado Docker, portanto deve ser utilizado
-o Gradle para buildar e executar o projeto de forma local. 
+Para executar o projeto deve-se utilizar o gradle.
+
+Primeiro, se executa `$ gradle build` para baixar as dependências e construir o projeto.
+
+Depois, para executar o projeto, deve-se executar `$ gradle bootRun`.
+
+Caso esteja utilizando a IDE IntelliJ, é só utilizar o menu do Gradle.
 
 Com o projeto executando, há apenas um endpoint que pode ser acessado pelo endereço http://localhost:8080/produtos
 
@@ -99,3 +107,12 @@ integrada cobrindo o restante do serviço, totalizando:
 - 95% das linhas (100/105, mesmo que acima)
 
 O relatório de cobertura de testes pode ser encontrado [aqui](htmlReport/index.html)
+
+## Observabilidade
+
+Para acompanhamento da saúde do serviço, foi incluído o Micrometer, parte do Spring Actuator, que colhe todos os dados necessários
+do serviço, o Prometheus que fica lendo os dados colhidos pelo Micrometer e o Grafana para criar dashboards com os dados do 
+Prometheus.
+
+Para verificar os dados, deve-se executar o `docker-compose.yml`, que irá criar imagens do Prometheus e do Grafana, que podem
+ser acessados pelas urls http://localhost:9090 e http://localhost:3000 respectivamente.
