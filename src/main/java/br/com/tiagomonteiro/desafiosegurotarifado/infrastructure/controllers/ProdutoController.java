@@ -21,7 +21,7 @@ public class ProdutoController {
     }
     
     @PostMapping("/produtos")
-    CreateProdutoResponse create(@RequestBody CreateProdutoRequest request) throws IllegalAccessException {
+    public CreateProdutoResponse create(@RequestBody CreateProdutoRequest request) throws IllegalAccessException {
         calculateTarifaInteractor.setStrategy(request.categoria());
         double precoTarifado = calculateTarifaInteractor.calcularTarifas(request.preco_base());
         Produto produtoBusinessObj = produtoDTOMapper.toProduto(request, precoTarifado);

@@ -18,7 +18,7 @@ public class CategoriaStrategyFactory {
         this.patrimonialCategoriaStrategy = new PatrimonialCategoriaStrategy();
     }
     
-    public CategoriaStrategy getStrategy(String categoria) throws IllegalAccessException {
+    public CategoriaStrategy getStrategy(String categoria) throws IllegalArgumentException {
         if("VIDA".equals(categoria))
             return vidaCategoriaStrategy;
         if("AUTO".equals(categoria))
@@ -30,6 +30,6 @@ public class CategoriaStrategyFactory {
         if("PATRIMONIAL".equals(categoria))
             return patrimonialCategoriaStrategy;
         
-        throw new IllegalAccessException("Categoria do produto inválida");
+        throw new IllegalArgumentException("Categoria do produto inválida");
     }
 }
